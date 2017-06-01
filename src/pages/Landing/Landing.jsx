@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Landing extends Component {
   constructor(props) {
@@ -6,20 +7,25 @@ class Landing extends Component {
     this.store = this.props.store;
   }
 
-  renderUser() {
-    console.log(this.props.store);
-    // const state = this.store.getState();
-    // const bodyText = state.loggedIn ? <h1>{state.userName} has the ID {state.userId}</h1> : 'Please Login';
-    // return <h1>{bodyText}</h1>;
+  componentDidMount() {
+    console.log('%cProps In Landing: ', 'color: grey;, font-weight: bold', this.props);
   }
 
   render() {
     return (
       <div>
-        {this.renderUser()}
+        Landing Page
       </div>
     );
   }
 }
 
-export default Landing;
+const mapStateToProps = (state, ownProps) => {
+  const { distance } = state;
+  return {
+    ...ownProps,
+    distance,
+  };
+};
+
+export default connect(mapStateToProps)(Landing);

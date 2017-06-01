@@ -3,10 +3,10 @@ import React  from 'react';
 import Header from './app/Header/Header';
 import Main   from './app/Main/Main';
 
-const App = props => (
+const App = () => (
   <div>
-    <Header store={props} />
-    <Main store={props} />
+    <Header />
+    <Main />
   </div>
 );
 

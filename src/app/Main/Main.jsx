@@ -4,14 +4,13 @@ import { Switch, Route } from 'react-router-dom';
 import {
   Dashboard,
   NotAuthed,
-  Landing,
-}                        from '../pages';
+  Landing }              from '../pages';
 
-const Main = props => (
+const Main = () => (
   <Switch>
     <Route path="/dashboard/:id" component={Dashboard} />
     <Route exact path="/dashboard/" component={NotAuthed} />
-    <Route exact path="/" store={props} component={Landing} />
+    <Route exact path="/" component={Landing} />
   </Switch>
 );
 

@@ -1,9 +1,9 @@
-import { login, logout }             from './actions/user';
-import { newProject, deleteProject } from './actions/projects';
+import { LOGIN, LOGOUT }             from './actions/user';
+import { NEW_PROJECT, DELETE_PROJECT } from './actions/projects';
 
 export default {
-  login,
-  logout,
-  newProject,
-  deleteProject,
+  LOGIN,
+  LOGOUT,
+  NEW_PROJECT,
+  DELETE_PROJECT,
 };
