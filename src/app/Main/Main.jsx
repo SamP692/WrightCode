@@ -1,17 +1,16 @@
 import React             from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import {
-  Dashboard,
-  NotAuthed,
-  Landing }              from '../pages';
+import Header            from '../Header/Header';
+import { Dashboard }     from '../pages';
 
 const Main = () => (
-  <Switch>
-    <Route path="/dashboard/:id" component={Dashboard} />
-    <Route exact path="/dashboard/" component={NotAuthed} />
-    <Route exact path="/" component={Landing} />
-  </Switch>
+  <div>
+    <Header />
+    <Switch>
+      <Route path="/dashboard" component={Dashboard} />
+    </Switch>
+  </div>
 );
 
 export default Main;

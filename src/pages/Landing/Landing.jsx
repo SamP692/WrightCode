@@ -1,31 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import './Landing.css';
+
 class Landing extends Component {
   constructor(props) {
     super(props);
-    this.store = this.props.store;
+    this.store = this.props;
   }
 
   componentDidMount() {
-    console.log('%cProps In Landing: ', 'color: grey;, font-weight: bold', this.props);
+    const userInformation = { name: 'Phred', userId: '12345' };
+    this.store.dispatch({ type: 'LOGIN', payload: userInformation });
+    console.log(this.props);
+    // Check Auth against DB
   }
 
   render() {
     return (
-      <div>
-        Landing Page
+      <div id="landingBody">
+        <div id="authContainer">{this.props.user.name}</div>
       </div>
     );
   }
 }
 
+// export default Landing;
+
 const mapStateToProps = (state, ownProps) => {
-  const { distance } = state;
+  const { user } = state;
   return {
     ...ownProps,
-    distance,
+    user,
   };
+  // return { ...ownProps, state };
 };
 
 export default connect(mapStateToProps)(Landing);

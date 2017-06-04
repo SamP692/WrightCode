@@ -1,12 +1,15 @@
-import React  from 'react';
+import React             from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import Header from './app/Header/Header';
-import Main   from './app/Main/Main';
+import { Landing }       from './app/pages';
+import Main              from './app/Main/Main';
 
 const App = () => (
   <div>
-    <Header />
-    <Main />
+    <Switch>
+      <Route exact path="/" component={Landing} />
+      <Route path="/" component={Main} />
+    </Switch>
   </div>
 );
 

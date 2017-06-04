@@ -20,7 +20,6 @@ let middleware = applyMiddleware(routerMiddleware(history));
 if (window.devToolsExtension) { middleware = compose(middleware, window.devToolsExtension()); }
 
 const store = createStore(reducers, middleware);
-console.log('%cINITIAL STORE: ', 'color: blue; font-weight: bold', store);
 
 ReactDOM.render(
   <Provider store={store}>
