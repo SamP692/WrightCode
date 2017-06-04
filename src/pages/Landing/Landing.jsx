@@ -20,8 +20,13 @@ class Landing extends Component {
   render() {
     return (
       <div id="landingBody">
-        <div id="authContainer">{this.props.user.userName}</div>
-        <div id="authContainer">{this.props.user.loggedIn ? 'Logged In' : 'Not Logged In'}</div>
+        <h1>{this.props.user.userName}</h1>
+        <h2>{this.props.user.loggedIn ? 'Logged In' : 'Not Logged In'}</h2>
+        <div id="authContainer">
+          <button onClick={() => this.store.dispatch({ type: 'TOGGLE_FORM' })}>Go to Login</button>
+          <button onClick={() => this.store.dispatch({ type: 'TOGGLE_FORM' })}>Go to Signup</button>
+          <p>{this.props.landingUi.activeForm === 'login' ? 'Login Form' : 'Signup Form'}</p>
+        </div>
       </div>
     );
   }
