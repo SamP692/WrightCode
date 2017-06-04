@@ -10,16 +10,18 @@ class Landing extends Component {
   }
 
   componentDidMount() {
-    const userInformation = { name: 'Phred', userId: '12345' };
+    const userInformation = { userName: 'Phred', userId: '12345' };
     this.store.dispatch({ type: 'LOGIN', payload: userInformation });
-    console.log(this.props);
+
     // Check Auth against DB
+    console.log(this.store);
   }
 
   render() {
     return (
       <div id="landingBody">
-        <div id="authContainer">{this.props.user.name}</div>
+        <div id="authContainer">{this.props.user.userName}</div>
+        <div id="authContainer">{this.props.user.loggedIn ? 'Logged In' : 'Not Logged In'}</div>
       </div>
     );
   }
@@ -28,10 +30,11 @@ class Landing extends Component {
 // export default Landing;
 
 const mapStateToProps = (state, ownProps) => {
-  const { user } = state;
+  const { user, landingUi } = state;
   return {
     ...ownProps,
     user,
+    landingUi,
   };
   // return { ...ownProps, state };
 };
