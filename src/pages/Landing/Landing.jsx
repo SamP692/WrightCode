@@ -33,12 +33,12 @@ class Landing extends Component {
     };
 
     return (
-      <div id="landingBody">
-        <h1>{this.props.user.userName}</h1>
-        <h2>{this.props.user.loggedIn ? 'Logged In' : 'Not Logged In'}</h2>
+      <div>
+        <div id="landingBg" />
+        <div id="landingBgOverlay" />
         <div id="authContainer">
-          <button onClick={() => this.props.dispatch({ type: 'TOGGLE_FORM' })}>Go to Login</button>
-          <button onClick={() => this.props.dispatch({ type: 'TOGGLE_FORM' })}>Go to Signup</button>
+          <button onClick={() => this.props.dispatch({ type: 'TOGGLE_FORM' })}>Login</button>
+          <button onClick={() => this.props.dispatch({ type: 'TOGGLE_FORM' })}>Signup</button>
           <p>{this.props.landingUi.activeForm === 'login' ? 'Login Form' : 'Signup Form'}</p>
           <AuthForm fields={this.props.landingUi.activeForm === 'login' ? loginFields : signupFields} />
         </div>

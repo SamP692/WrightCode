@@ -1,16 +1,41 @@
-#landingBody {
-  margin: 0;
-  padding: 0;
-  background-color: red;
-  width: 100vw;
-  height: 100vh;
-  /*padding-top: 20%;*/
+/* Styles needed for background image */
+#landingBg {
+  background-image: url("./landingBgPers.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  filter: blur(3px);
 }
 
+/* Faded overlay for background image */
+#landingBgOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* House for the actual login/signup section */
 #authContainer {
-  width: 50%;
-  /*height: 50%;*/
-  background-color: blue;
+  filter: blur(0px);
+  width: 370px;
+  height: 420px;
+  background-color: white;
+  margin: 7% auto 0 auto;
+  text-align: center;
+}
+
+/* Login/Signup buttons */
+#authContainer button {
   margin: 0 auto;
-  /*min-height: 100px;*/
+  width: 50%;
+  font-size: 1.5rem;
+  border: 1px grey solid;
+  background-color: white;
+  line-height: 4rem;
 }
