@@ -5,7 +5,7 @@ const landingUi = (state = defaultLandingUi, action) => {
     case 'TOGGLE_FORM':
       return Object.assign(...state, { activeForm: state.activeForm === 'login' ? 'signup' : 'login' });
     case 'UPDATE_FORM_INPUTS':
-      console.log('%cPayload... ', 'color: green; font-weight: bold', action.payload);
+      console.log('%cNew State... ', 'color: green; font-weight: bold', Object.assign(...state, action.payload));
       return Object.assign(...state, action.payload);
     default:
       return state;

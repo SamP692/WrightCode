@@ -13,6 +13,12 @@ class Landing extends Component {
     // Check Auth against DB
   }
 
+  toggleForm(form) {
+    if (this.props.landingUi.activeForm !== form) {
+      this.props.dispatch({ type: 'TOGGLE_FORM' });
+    }
+  }
+
   render() {
     const loginFields = {
       userName: {
@@ -37,8 +43,18 @@ class Landing extends Component {
         <div id="landingBg" />
         <div id="landingBgOverlay" />
         <div id="authContainer">
-          <button onClick={() => this.props.dispatch({ type: 'TOGGLE_FORM' })}>Login</button>
-          <button onClick={() => this.props.dispatch({ type: 'TOGGLE_FORM' })}>Signup</button>
+          <button
+            className={this.props.landingUi.activeForm === 'login' ? 'selected' : null}
+            onClick={() => this.toggleForm('login')}
+          >
+            Login
+          </button>
+          <button
+            className={this.props.landingUi.activeForm === 'signup' ? 'selected' : null}
+            onClick={() => this.toggleForm('signup')}
+          >
+            Signup
+          </button>
           <p>{this.props.landingUi.activeForm === 'login' ? 'Login Form' : 'Signup Form'}</p>
           <AuthForm fields={this.props.landingUi.activeForm === 'login' ? loginFields : signupFields} />
         </div>
