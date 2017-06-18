@@ -6,6 +6,10 @@ import AuthForm from './AuthForm/AuthForm';
 import './Landing.css';
 
 class Landing extends Component {
+  constructor() {
+    super();
+    this.submitAuth = this.submitAuth.bind(this);
+  }
   componentDidMount() {
     const userInformation = { userName: 'Phred', userId: '12345' };
     this.props.dispatch({ type: 'LOGIN', payload: userInformation });
@@ -13,10 +17,25 @@ class Landing extends Component {
     // Check Auth against DB
   }
 
-  toggleForm(form) {
-    if (this.props.landingUi.activeForm !== form) {
+  toggleForm(newFormType) {
+    if (this.props.landingUi.activeForm !== newFormType) {
       this.props.dispatch({ type: 'TOGGLE_FORM' });
     }
+  }
+
+  submitAuth() {
+    const { activeForm, password, confirmPassword, userName } = this.props.landingUi;
+
+    // SHARED SITUATIONS BEFORE REQUEST TO DB
+      // Email is blank
+      // Password is blank
+
+    // SIGNUP SITUATIONS BEFORE REQUEST TO DB
+      // Email is not an email
+      // Password is not at least 6 characters
+      // Password and confirm password don't match
+      // Email is good, password are good
+      // *All should be checked -- as in if there are multiple errors, all should show
   }
 
   render() {
@@ -56,7 +75,7 @@ class Landing extends Component {
             Signup
           </button>
           <AuthForm fields={this.props.landingUi.activeForm === 'login' ? loginFields : signupFields} />
-          <button className="submit">
+          <button className="submit" onClick={this.submitAuth}>
             {this.props.landingUi.activeForm === 'login' ? 'Login' : 'Signup'}
           </button>
         </div>

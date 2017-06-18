@@ -23,6 +23,13 @@
       "no-trailing-spaces": [0],
       "react/self-closing-comp": [1],
       "arrow-body-style": [1],
-      "no-debugger": [1]
+      "no-debugger": [1],
+      "class-methods-use-this": [1],
+      "semi": [1],
+      "no-empty": [1],
+      "prefer-const": [1],
+      "space-infix-ops": [1],
+      "eol-last": [0],
+      "comma-dangle": [1]
     }
 }
