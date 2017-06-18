@@ -4,19 +4,22 @@ import { connect } from 'react-redux';
 import './AuthForm.css';
 
 const AuthForm = (props) => {
-  // console.log(props.fields);
-
   const registerInputChange = (property, e) => {
     const landingUi = {};
     landingUi[property] = e.target.value;
     props.dispatch({ type: 'UPDATE_FORM_INPUTS', payload: landingUi });
   };
 
+  const isPasswordField = (type) => {
+    const normalizedType = type.toLowerCase();
+    return normalizedType.indexOf('password') >= 0;
+  };
+
   return (
     <div id="authFormBody">
       {Object.entries(props.fields).map(fieldEntry => (
         <input
-          type={fieldEntry[0].toLowerCase().indexOf('password') ? 'password' : 'text'}
+          type={isPasswordField(fieldEntry[0]) ? 'password' : 'text'}
           key={fieldEntry[0]}
           onChange={e => registerInputChange(fieldEntry[0], e)}
           placeholder={fieldEntry[1].placeholder}
