@@ -55,7 +55,6 @@ class Landing extends Component {
           >
             Signup
           </button>
-          <p>{this.props.landingUi.activeForm === 'login' ? 'Login Form' : 'Signup Form'}</p>
           <AuthForm fields={this.props.landingUi.activeForm === 'login' ? loginFields : signupFields} />
         </div>
       </div>
