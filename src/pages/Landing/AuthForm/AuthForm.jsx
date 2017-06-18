@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './AuthForm.css';
 
 const AuthForm = (props) => {
-  console.log(props.fields);
+  // console.log(props.fields);
 
   const registerInputChange = (property, e) => {
     const landingUi = {};
