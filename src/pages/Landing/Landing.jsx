@@ -34,7 +34,7 @@ class Landing extends Component {
       ...loginFields,
       confirmPassword: {
         label: 'Password',
-        placeholder: 'Confirm Password...',
+        placeholder: 'Confirm Your Password Here...',
       },
     };
 
@@ -56,6 +56,9 @@ class Landing extends Component {
             Signup
           </button>
           <AuthForm fields={this.props.landingUi.activeForm === 'login' ? loginFields : signupFields} />
+          <button className="submit">
+            {this.props.landingUi.activeForm === 'login' ? 'Login' : 'Signup'}
+          </button>
         </div>
       </div>
     );
