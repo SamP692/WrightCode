@@ -1,7 +1,7 @@
 import React             from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { Landing }       from './app/pages';
+import { Landing }       from './pages';
 import Main              from './app/Main/Main';
 
 const App = () => (

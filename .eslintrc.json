@@ -30,6 +30,7 @@
       "prefer-const": [1],
       "space-infix-ops": [1],
       "eol-last": [0],
-      "comma-dangle": [1]
+      "comma-dangle": [1],
+      "import/prefer-default-export": [1]
     }
 }

@@ -10,7 +10,7 @@ export default class authService {
     let isError = false;
     if (!userName) { errors.userName = 'empty'; }
     if (!password) { errors.password = 'empty'; }
-    if ()
+    // if ()
 
     if (activeForm === 'signup') {
       const isEmail = () => {
