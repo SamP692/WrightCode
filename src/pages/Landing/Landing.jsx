@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect }          from 'react-redux';
 
-import authService from '../../services';
+import { authService }      from '../../services';
 
-import AuthForm from './AuthForm/AuthForm';
+import AuthForm             from './AuthForm/AuthForm';
 
 import './Landing.css';
 
@@ -12,6 +12,7 @@ class Landing extends Component {
     super();
     this.submitAuth = this.submitAuth.bind(this);
   }
+
   componentDidMount() {
     const userInformation = { userName: 'Phred', userId: '12345' };
     this.props.dispatch({ type: 'LOGIN', payload: userInformation });
@@ -27,6 +28,7 @@ class Landing extends Component {
 
   submitAuth() {
     const { activeForm, password, confirmPassword, userName } = this.props.landingUi;
+    authService.authUser({ activeForm, password, confirmPassword, userName });
 
     // SHARED SITUATIONS BEFORE REQUEST TO DB
       // Email is blank
