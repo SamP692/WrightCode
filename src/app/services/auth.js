@@ -12,7 +12,6 @@ const credentialInputErrors = (credentials) => {
   const errors = {
     userName: null,
     password: null,
-    confirmPassword: null,
   };
 
   const { activeForm, password, confirmPassword, userName } = credentials;
@@ -21,6 +20,7 @@ const credentialInputErrors = (credentials) => {
   if (!password) { errors.password = 'empty'; }
   if (activeForm === 'signup' && !confirmPassword) { errors.confirmPassword = 'empty'; }
   if (activeForm === 'signup') {
+    errors.confirmPassword = null;
     if (password !== confirmPassword) {
       errors.password = 'mismatch';
       errors.confirmPassword = 'mismatch';
@@ -31,12 +31,12 @@ const credentialInputErrors = (credentials) => {
 };
 
 export default class authService {
-  static authUser(credentials) {
+  static authUser(credentials, resolveCallback, rejectCallback) {
     const credentialErrors = credentialInputErrors(credentials);
     let isError = false;
     Object.entries(credentialErrors).forEach((inputElement) => {
-      if (inputElement[0] !== null) { isError = true; }
+      if (inputElement[1] !== null) { isError = true; }
     });
-    return isError ? credentialErrors : 'Success!';
+    return isError ? rejectCallback(credentialErrors) : resolveCallback();
   }
 }

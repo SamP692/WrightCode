@@ -28,7 +28,18 @@ class Landing extends Component {
 
   submitAuth() {
     const { activeForm, password, confirmPassword, userName } = this.props.landingUi;
-    authService.authUser({ activeForm, password, confirmPassword, userName });
+    const successfulLogin = () => {
+      console.log('%cSuccess!', 'color: green; font-weight: bold');
+    }
+    const failedLogin = (errors = null) => {
+      console.log('%cLogin Failed, Errors: ', 'background-color: red; font-weight: bold');
+      console.log(errors);
+    }
+    authService.authUser(
+      { activeForm, password, confirmPassword, userName },
+      successfulLogin,
+      failedLogin,
+    );
 
     // SHARED SITUATIONS BEFORE REQUEST TO DB
       // Email is blank
