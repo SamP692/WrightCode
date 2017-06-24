@@ -1,3 +1,5 @@
+import firebase from '../../firebase.config';
+
 const credentialInputErrors = (credentials) => {
   // NOTE WHAT THIS IS CHECKING FOR
     // Is there a userName
@@ -37,6 +39,18 @@ export default class authService {
     Object.entries(credentialErrors).forEach((inputElement) => {
       if (inputElement[1] !== null) { isError = true; }
     });
-    return isError ? rejectCallback(credentialErrors) : resolveCallback();
+    if (isError) {
+      rejectCallback(credentialErrors);
+    } else if (credentials.activeForm === 'signup') {
+      firebase.auth().createUserWithEmailAndPassword(credentials.userName, credentials.password)
+                     .then(() => resolveCallback())
+                     .catch(err => rejectCallback(err));
+    } else if (credentials.activeForm === 'login') {
+      firebase.auth().signInWithEmailAndPassword(credentials.userName, credentials.password)
+                     .then(() => resolveCallback())
+                     .catch(err => rejectCallback(err));
+    } else {
+      rejectCallback('Unknown Error');
+    }
   }
 }

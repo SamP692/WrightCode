@@ -32,6 +32,11 @@ class Landing extends Component {
       console.log('%cSuccess!', 'color: green; font-weight: bold');
     }
     const failedLogin = (errors = null) => {
+      // TODO
+        // Handle badly formatted email return from firebase
+        // Handle at least 6 character password error from firebase
+        // Handle email already in use return from firebase
+
       console.log('%cLogin Failed, Errors: ', 'background-color: red; font-weight: bold');
       console.log(errors);
     }
