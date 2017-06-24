@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
+import { push }             from 'react-router-redux';
 
 import { authService }      from '../../services';
 
@@ -35,8 +36,7 @@ class Landing extends Component {
         userName,
         userId: res.uid,
       };
-      this.props.dispatch({ type: activeForm === 'login' ? 'LOGIN' : 'SIGNUP', payload: user });
-      console.log('%cSuccess!', 'color: green; font-weight: bold', res);
+      this.props.dispatch(push('/dashboard'), { type: 'LOGIN', payload: user });
     };
     const failedAuth = (errors = null) => {
       console.log('%cLogin Failed, Errors: ', 'background-color: red; font-weight: bold');
@@ -97,11 +97,12 @@ class Landing extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { user, landingUi } = state;
+  const { user, landingUi, router } = state;
   return {
     ...ownProps,
     user,
     landingUi,
+    router,
   };
 };
 
