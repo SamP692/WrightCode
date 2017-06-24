@@ -7,17 +7,18 @@ import AuthForm             from './AuthForm/AuthForm';
 
 import './Landing.css';
 
+// TODO
+  // BEFORE REQUEST TO DB
+    // Show mismatch errors for signup
+  // RESPOND TO FAILED LOGIN
+    // Handle badly formatted email return from firebase
+    // Handle at least 6 character password error from firebase
+    // Handle email already in use return from firebase
+
 class Landing extends Component {
   constructor() {
     super();
     this.submitAuth = this.submitAuth.bind(this);
-  }
-
-  componentDidMount() {
-    const userInformation = { userName: 'Phred', userId: '12345' };
-    this.props.dispatch({ type: 'LOGIN', payload: userInformation });
-
-    // Check Auth against DB
   }
 
   toggleForm(newFormType) {
@@ -27,26 +28,25 @@ class Landing extends Component {
   }
 
   submitAuth() {
-    // TODO BEFORE REQUEST TO DB
-      // Show mismatch errors for signup
-
     const { activeForm, password, confirmPassword, userName } = this.props.landingUi;
-    const successfulLogin = () => {
-      console.log('%cSuccess!', 'color: green; font-weight: bold');
-    }
-    const failedLogin = (errors = null) => {
-      // TODO RESPOND TO FAILED LOGIN
-        // Handle badly formatted email return from firebase
-        // Handle at least 6 character password error from firebase
-        // Handle email already in use return from firebase
 
+    const successfulAuth = (res = null) => {
+      const user = {
+        userName,
+        id: res.uid,
+      };
+      this.props.dispatch({ type: activeForm === 'login' ? 'LOGIN' : 'SIGNUP', payload: user });
+      console.log('%cSuccess!', 'color: green; font-weight: bold', res);
+    };
+    const failedAuth = (errors = null) => {
       console.log('%cLogin Failed, Errors: ', 'background-color: red; font-weight: bold');
       console.log(errors);
-    }
+    };
+
     authService.authUser(
       { activeForm, password, confirmPassword, userName },
-      successfulLogin,
-      failedLogin,
+      successfulAuth,
+      failedAuth,
     );
   }
 

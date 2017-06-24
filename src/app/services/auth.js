@@ -43,14 +43,19 @@ export default class authService {
       rejectCallback(credentialErrors);
     } else if (credentials.activeForm === 'signup') {
       firebase.auth().createUserWithEmailAndPassword(credentials.userName, credentials.password)
-                     .then(() => resolveCallback())
+                     .then(res => resolveCallback(res))
                      .catch(err => rejectCallback(err));
     } else if (credentials.activeForm === 'login') {
       firebase.auth().signInWithEmailAndPassword(credentials.userName, credentials.password)
-                     .then(() => resolveCallback())
+                     .then(res => resolveCallback(res))
                      .catch(err => rejectCallback(err));
     } else {
       rejectCallback('Unknown Error');
     }
+  }
+
+  static confirmSession(callback) {
+    firebase.auth().getInstance().getCurrentUser()
+                                 .then(res => callback(res));
   }
 }
