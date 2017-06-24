@@ -33,7 +33,7 @@ class Landing extends Component {
     const successfulAuth = (res = null) => {
       const user = {
         userName,
-        id: res.uid,
+        userId: res.uid,
       };
       this.props.dispatch({ type: activeForm === 'login' ? 'LOGIN' : 'SIGNUP', payload: user });
       console.log('%cSuccess!', 'color: green; font-weight: bold', res);
