@@ -27,12 +27,15 @@ class Landing extends Component {
   }
 
   submitAuth() {
+    // TODO BEFORE REQUEST TO DB
+      // Show mismatch errors for signup
+
     const { activeForm, password, confirmPassword, userName } = this.props.landingUi;
     const successfulLogin = () => {
       console.log('%cSuccess!', 'color: green; font-weight: bold');
     }
     const failedLogin = (errors = null) => {
-      // TODO
+      // TODO RESPOND TO FAILED LOGIN
         // Handle badly formatted email return from firebase
         // Handle at least 6 character password error from firebase
         // Handle email already in use return from firebase
@@ -45,17 +48,6 @@ class Landing extends Component {
       successfulLogin,
       failedLogin,
     );
-
-    // SHARED SITUATIONS BEFORE REQUEST TO DB
-      // Email is blank
-      // Password is blank
-
-    // SIGNUP SITUATIONS BEFORE REQUEST TO DB
-      // Email is not an email
-      // Password is not at least 6 characters
-      // Password and confirm password don't match
-      // Email is good, password are good
-      // *All should be checked -- as in if there are multiple errors, all should show
   }
 
   render() {
