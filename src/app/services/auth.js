@@ -55,7 +55,6 @@ export default class authService {
   }
 
   static confirmSession(callback) {
-    firebase.auth().getInstance().getCurrentUser()
-                                 .then(res => callback(res));
+    firebase.auth().onAuthStateChanged(user => callback(user));
   }
 }
