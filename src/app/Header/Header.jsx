@@ -7,16 +7,10 @@ class Header extends Component {
     this.store = this.props.store;
   }
 
-  checkState() {
-    // console.log(this.store);
-  }
-
   render() {
     return (
       <div className="header">
         This is the header
-        {this.checkState()}
-        {/* <Link to="" */}
       </div>
     );
   }

@@ -36,7 +36,8 @@ class Landing extends Component {
         userName,
         userId: res.uid,
       };
-      this.props.dispatch(push('/dashboard'), { type: 'LOGIN', payload: user });
+      this.props.dispatch({ type: 'LOGIN', payload: user });
+      this.props.dispatch(push('/dashboard'));
     };
     const failedAuth = (errors = null) => {
       console.log('%cLogin Failed, Errors: ', 'background-color: red; font-weight: bold');

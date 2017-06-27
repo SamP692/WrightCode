@@ -8,13 +8,11 @@ import './Dashboard.css';
 class Dashboard extends Component {
   componentDidMount() {
     console.log(this.props)
-    // console.log(`%cEmail: ${this.props.user.userName}, User ID: ${this.props.user.userId}`);
     const confirmLogin = (res) => {
       const user = {
         userName: res.email,
         userId: res.uid,
       };
-      console.log(user);
     };
     authService.confirmSession(confirmLogin);
   }

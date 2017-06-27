@@ -1,4 +1,4 @@
-import React from 'react';
+import React       from 'react';
 import { connect } from 'react-redux';
 
 import './AuthForm.css';
@@ -16,7 +16,7 @@ const AuthForm = (props) => {
   };
 
   return (
-    <div id="authFormBody">
+    <form id="authFormBody">
       {Object.entries(props.fields).map(fieldEntry => (
         <input
           type={isPasswordField(fieldEntry[0]) ? 'password' : 'text'}
@@ -25,7 +25,7 @@ const AuthForm = (props) => {
           placeholder={fieldEntry[1].placeholder}
         />
       ))}
-    </div>
+    </form>
   );
 };
 
