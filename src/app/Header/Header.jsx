@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import { Link }             from 'react-router-dom';
 
+import './Header.css';
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="header">
+      <div id="header">
         This is the header
       </div>
     );
