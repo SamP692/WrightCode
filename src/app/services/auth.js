@@ -1,16 +1,6 @@
 import firebase from '../../firebase.config';
 
 const credentialInputErrors = (credentials) => {
-  // NOTE WHAT THIS IS CHECKING FOR
-    // Is there a userName
-    // Is there a password
-    // If user is signing up, is there a confirm password
-    // If user is signing up, do passwords match
-
-  // NOTE STILL NEEDS...
-    // Validate username as appearing to be an email
-      // Probably better to use a tool for this than write it by hand
-
   const errors = {
     userName: null,
     password: null,
@@ -33,6 +23,9 @@ const credentialInputErrors = (credentials) => {
 };
 
 export default class authService {
+  /*
+  * Used for both "lOGIN" and "SIGNUP"
+  */
   static authUser(credentials, resolveCallback, rejectCallback) {
     const credentialErrors = credentialInputErrors(credentials);
     let isError = false;
@@ -54,6 +47,9 @@ export default class authService {
     }
   }
 
+  /*
+  * Used to confirm an active session
+  */
   static confirmSession(callback) {
     firebase.auth().onAuthStateChanged(user => callback(user));
   }

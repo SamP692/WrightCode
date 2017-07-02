@@ -6,19 +6,6 @@ import { authService }      from '../../services';
 import './Dashboard.css';
 
 class Dashboard extends Component {
-  componentDidMount() {
-    // console.log(this.props)
-
-    const confirmLogin = (res) => {
-      const user = {
-        userName: res.email,
-        userId: res.uid,
-      };
-      console.log(user);
-    };
-    authService.confirmSession(confirmLogin);
-  }
-
   render() {
     return (
       <div>
