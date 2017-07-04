@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
-import { authService }      from '../../services';
+// import { authService }      from '../../services';
 
 import './Dashboard.css';
 

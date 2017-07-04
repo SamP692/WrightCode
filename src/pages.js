@@ -1,6 +1,6 @@
-import Landing   from './pages/Landing/Landing';
-import Dashboard from './pages/Dashboard/Dashboard';
-import NotAuthed from './pages/NotAuthed/NotAuthed';
+import Landing   from './frontEndComponents/Landing/Landing';
+import Dashboard from './frontEndComponents/Dashboard/Dashboard';
+import NotAuthed from './frontEndComponents/NotAuthed/NotAuthed';
 
 export {
   Landing,
