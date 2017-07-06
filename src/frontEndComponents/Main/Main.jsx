@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { Switch, Route }    from 'react-router-dom';
-import { connect }          from 'react-redux';
-import { push }             from 'react-router-redux';
+import React, { Component }  from 'react';
+import { Switch, Route }     from 'react-router-dom';
+import { connect }           from 'react-redux';
+import { push }              from 'react-router-redux';
 
-import Header               from '../Header/Header';
-import { Dashboard }        from '../../pages';
+import { Dashboard, Header } from '../../frontEndComponents';
 
-import { authService }      from '../../services';
+import { authService }       from '../../services';
 
 class Main extends Component {
   componentDidMount() {
