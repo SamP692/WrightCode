@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
-// import { authService }      from '../../services';
-
 import './Dashboard.css';
+
+// NOTE
+//  Function to redirect to homepage upon signout
+//  Needs to be authed route
+//  Must update state with empty user
 
 class Dashboard extends Component {
   render() {
     return (
       <div>
-        Welcome to your dashboard
+        <button onClick={this.signout}>Sign Out</button>
       </div>
     );
   }

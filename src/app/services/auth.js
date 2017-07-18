@@ -36,7 +36,11 @@ export default class authService {
     });
   }
 
+  /*
+  * Used to sign out a user
+  ** undefined is returned by resolved response
+  */
   static endSession() {
-    firebase.auth().signOut().then(res => console.log('%cSigned out!', 'color: blue; font-weight: bold', res));
+    firebase.auth().signOut();
   }
 }
