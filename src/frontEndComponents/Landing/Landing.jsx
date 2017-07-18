@@ -27,7 +27,7 @@ class Landing extends Component {
   }
 
   confirmNoUser() {
-    const isActiveUser = (res) => {
+    const isActiveSession = (res) => {
       const user = {
         userName: res.email,
         userId: res.uid,
@@ -37,9 +37,9 @@ class Landing extends Component {
       this.props.dispatch(push('/dashboard'));
     };
 
-    const noActiveUser = () => {};
+    const noActiveSession = () => {};
 
-    authService.confirmSession(isActiveUser, noActiveUser);
+    authService.confirmSession(isActiveSession, noActiveSession);
   }
 
   toggleForm(newFormType) {
@@ -118,12 +118,11 @@ class Landing extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { user, landingUi, router } = state;
+  const { user, landingUi } = state;
   return {
     ...ownProps,
     user,
     landingUi,
-    router,
   };
 };
 
