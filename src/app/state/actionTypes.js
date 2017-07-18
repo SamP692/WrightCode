@@ -1,10 +1,10 @@
-import { LOGIN, LOGOUT }                   from './actions/user';
+import { UPDATE_SESSION, END_SESSION }     from './actions/user';
 import { NEW_PROJECT, DELETE_PROJECT }     from './actions/projects';
 import { TOGGLE_FORM, UPDATE_FORM_INPUTS } from './actions/landingUi';
 
 export default {
-  LOGIN,
-  LOGOUT,
+  UPDATE_SESSION,
+  END_SESSION,
   NEW_PROJECT,
   DELETE_PROJECT,
   TOGGLE_FORM,

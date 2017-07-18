@@ -29,7 +29,7 @@ class Landing extends Component {
         userId: res.uid,
       };
 
-      this.props.dispatch({ type: 'LOGIN', payload: user });
+      this.props.dispatch({ type: 'UPDATE_SESSION', payload: user });
       this.props.dispatch(push('/dashboard'));
     };
 
@@ -52,9 +52,10 @@ class Landing extends Component {
         userName,
         userId: res.uid,
       };
-      this.props.dispatch({ type: 'LOGIN', payload: user });
+      this.props.dispatch({ type: 'UPDATE_SESSION', payload: user });
       this.props.dispatch(push('/dashboard'));
     };
+    
     const failedAuth = (errors = null) => {
       console.log('%cLogin Failed, Errors: ', 'background-color: red; font-weight: bold');
       console.log(errors);

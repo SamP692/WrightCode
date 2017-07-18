@@ -2,7 +2,7 @@ import { defaultUser } from './defaults';
 
 const user = (state = defaultUser, action) => {
   switch (action.type) {
-    case 'LOGIN': {
+    case 'UPDATE_SESSION': {
       const userData = {
         userName: action.payload.userName,
         userId: action.payload.userId,
@@ -10,7 +10,7 @@ const user = (state = defaultUser, action) => {
       };
       return { ...state, ...userData };
     }
-    case 'LOGOUT':
+    case 'END_SESSION':
       return { ...state, defaultUser };
     default:
       return state;

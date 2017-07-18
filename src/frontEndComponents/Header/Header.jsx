@@ -10,7 +10,7 @@ import './Header.css';
 class Header extends Component {
   signOut() {
     authService.endSession();
-    this.props.dispatch({ type: 'LOGOUT' });
+    this.props.dispatch({ type: 'END_SESSION' });
     this.props.dispatch(push('/'));
   }
 

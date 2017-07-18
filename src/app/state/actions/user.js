@@ -1,3 +1,3 @@
-export const LOGIN = payload => ({ type: 'LOGIN', payload });
+export const UPDATE_SESSION = payload => ({ type: 'UPDATE_SESSION', payload });
 
-export const LOGOUT = () => ({ type: 'LOGOUT' });
+export const END_SESSION = () => ({ type: 'END_SESSION' });

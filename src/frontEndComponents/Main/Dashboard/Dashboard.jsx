@@ -14,12 +14,12 @@ class Dashboard extends Component {
         userId: res.uid,
       };
 
-      this.props.dispatch({ type: 'LOGIN', payload: user });
+      this.props.dispatch({ type: 'UPDATE_SESSION', payload: user });
       this.props.dispatch(push('/dashboard'));
     };
 
     const noActiveSession = () => {
-      this.props.dispatch({ type: 'LOGOUT' });
+      this.props.dispatch({ type: 'END_SESSION' });
       this.props.dispatch(push('/'));
     };
 
@@ -29,7 +29,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        Hi, this is an Authed Component
+        Welcome to your dashboard
       </div>
     );
   }
