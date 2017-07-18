@@ -1,26 +1,6 @@
-import firebase from '../../firebase.config';
+import firebase                  from '../../firebase.config';
 
-const credentialInputErrors = (credentials) => {
-  const errors = {
-    userName: null,
-    password: null,
-  };
-
-  const { activeForm, password, confirmPassword, userName } = credentials;
-
-  if (!userName) { errors.userName = 'empty'; }
-  if (!password) { errors.password = 'empty'; }
-  if (activeForm === 'signup' && !confirmPassword) { errors.confirmPassword = 'empty'; }
-  if (activeForm === 'signup') {
-    errors.confirmPassword = null;
-    if (password !== confirmPassword) {
-      errors.password = 'mismatch';
-      errors.confirmPassword = 'mismatch';
-    }
-  }
-
-  return errors;
-};
+import { credentialInputErrors } from './helpers/auth';
 
 export default class authService {
   /*
@@ -50,7 +30,13 @@ export default class authService {
   /*
   * Used to confirm an active session
   */
-  static confirmSession(callback) {
-    firebase.auth().onAuthStateChanged(user => callback(user));
+  static confirmSession(resolveCallback, rejectCallback) {
+    firebase.auth().onAuthStateChanged((user) => {
+      return user ? resolveCallback(user) : rejectCallback();
+    });
+  }
+
+  static endSession() {
+    firebase.auth().signOut().then(res => console.log('%cSigned out!', 'color: blue; font-weight: bold', res));
   }
 }

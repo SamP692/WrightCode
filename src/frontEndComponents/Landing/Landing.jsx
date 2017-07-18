@@ -22,6 +22,26 @@ class Landing extends Component {
     this.submitAuth = this.submitAuth.bind(this);
   }
 
+  componentDidMount() {
+    this.confirmNoUser();
+  }
+
+  confirmNoUser() {
+    const isActiveUser = (res) => {
+      const user = {
+        userName: res.email,
+        userId: res.uid,
+      };
+
+      this.props.dispatch({ type: 'LOGIN', payload: user });
+      this.props.dispatch(push('/dashboard'));
+    };
+
+    const noActiveUser = () => {};
+
+    authService.confirmSession(isActiveUser, noActiveUser);
+  }
+
   toggleForm(newFormType) {
     if (this.props.landingUi.activeForm !== newFormType) {
       this.props.dispatch({ type: 'TOGGLE_FORM' });
