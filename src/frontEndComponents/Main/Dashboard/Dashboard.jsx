@@ -3,11 +3,6 @@ import { connect }          from 'react-redux';
 
 import './Dashboard.css';
 
-// NOTE
-//  Function to redirect to homepage upon signout
-//  Needs to be authed route
-//  Must update state with empty user
-
 class Dashboard extends Component {
   render() {
     return (
