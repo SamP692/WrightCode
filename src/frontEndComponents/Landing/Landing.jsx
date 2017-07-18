@@ -9,12 +9,12 @@ import AuthForm             from './AuthForm/AuthForm';
 import './Landing.css';
 
 // TODO
-  // BEFORE REQUEST TO DB
-    // Show mismatch errors for signup
-  // RESPOND TO FAILED LOGIN
-    // Handle badly formatted email return from firebase
-    // Handle at least 6 character password error from firebase
-    // Handle email already in use return from firebase
+// BEFORE REQUEST TO DB
+//  Show mismatch errors for signup
+// RESPOND TO FAILED LOGIN
+//  Handle badly formatted email return from firebase
+//  Handle at least 6 character password error from firebase
+//  Handle email already in use return from firebase
 
 class Landing extends Component {
   constructor() {
@@ -22,11 +22,7 @@ class Landing extends Component {
     this.submitAuth = this.submitAuth.bind(this);
   }
 
-  componentDidMount() {
-    this.confirmNoUser();
-  }
-
-  confirmNoUser() {
+  componentWillMount() {
     const isActiveSession = (res) => {
       const user = {
         userName: res.email,

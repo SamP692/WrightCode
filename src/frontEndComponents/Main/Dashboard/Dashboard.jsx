@@ -1,11 +1,31 @@
-import React               from 'react';
-import { connect }         from 'react-redux';
+import React, { Component } from 'react';
+import { connect }          from 'react-redux';
+import { push }             from 'react-router-redux';
 
-import { AuthedComponent } from '../../../utilities';
+import { authService }      from '../../../services';
 
 import './Dashboard.css';
 
-class Dashboard extends AuthedComponent {
+class Dashboard extends Component {
+  componentWillMount() {
+    const isActiveSession = (res) => {
+      const user = {
+        userName: res.email,
+        userId: res.uid,
+      };
+
+      this.props.dispatch({ type: 'LOGIN', payload: user });
+      this.props.dispatch(push('/dashboard'));
+    };
+
+    const noActiveSession = () => {
+      this.props.dispatch({ type: 'LOGOUT' });
+      this.props.dispatch(push('/'));
+    };
+
+    authService.confirmSession(isActiveSession, noActiveSession);
+  }
+
   render() {
     return (
       <div>

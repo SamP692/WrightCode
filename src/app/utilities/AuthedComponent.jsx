@@ -5,9 +5,9 @@ import { push }        from 'react-router-redux';
 import { authService } from '../../services';
 
 class AuthedComponent extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
     console.log('Authed Component Mounted');
