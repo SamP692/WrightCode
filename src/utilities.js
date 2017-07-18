@@ -1,3 +1,3 @@
-import AuthedRoute from './app/utilities/AuthedRoute';
+import AuthedComponent from './app/utilities/AuthedComponent';
 
-export { AuthedRoute };
+export { AuthedComponent };

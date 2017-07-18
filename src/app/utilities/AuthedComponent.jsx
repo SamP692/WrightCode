@@ -4,7 +4,7 @@ import { push }        from 'react-router-redux';
 
 import { authService } from '../../services';
 
-class AuthedRoute extends Component {
+class AuthedComponent extends Component {
   constructor(props) {
     super(props);
   }
@@ -37,4 +37,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(AuthedRoute);
+export default connect(mapStateToProps)(AuthedComponent);
