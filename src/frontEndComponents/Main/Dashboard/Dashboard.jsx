@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
-import { connect }          from 'react-redux';
+import React               from 'react';
+import { connect }         from 'react-redux';
+
+import { AuthedComponent } from '../../../utilities';
 
 import './Dashboard.css';
 
-class Dashboard extends Component {
+class Dashboard extends AuthedComponent {
   render() {
     return (
       <div>
-        <button onClick={this.signout}>Sign Out</button>
+        Hi, this is an Authed Component
       </div>
     );
   }
