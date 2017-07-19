@@ -8,6 +8,11 @@ import { authService }      from '../../services';
 import './Header.css';
 
 class Header extends Component {
+  constructor() {
+    super();
+    this.signOut = this.signOut.bind(this);
+  }
+
   signOut() {
     authService.endSession();
     this.props.dispatch({ type: 'END_SESSION' });
@@ -17,9 +22,15 @@ class Header extends Component {
   render() {
     return (
       <div id="headerContainer">
-        <Link onClick={this.signOut} to="/">
-          Sign Out
+        <Link to="/dashboard">
+          Dashboard
         </Link>
+        <button onMouseOver={() => this.recordEvent('Over')} onBlur={() => this.recordEvent('Blur')}>
+          Projects
+        </button>
+        <button onClick={this.signOut}>
+          Sign Out
+        </button>
       </div>
     );
   }
