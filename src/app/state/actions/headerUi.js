@@ -1,1 +1,1 @@
-export const CHANGE_PAGE = payload => ({ type: 'CHANGE_PAGE', payload });
+export const TOGGLE_NAV = payload => ({ type: 'TOGGLE_NAV', payload });
