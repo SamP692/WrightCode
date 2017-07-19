@@ -5,6 +5,8 @@ import { connect }          from 'react-redux';
 
 import { authService }      from '../../services';
 
+import { ProjectsDropdown }  from '../../frontEndComponents';
+
 import './Header.css';
 
 class Header extends Component {
@@ -29,22 +31,12 @@ class Header extends Component {
   }
 
   render() {
-    const recordEvent = (event) => {
-      console.log('%cEvent Fired: ', 'color: blue; font-weight: bold', event);
-    };
-
     return (
       <div id="headerContainer">
         <Link onClick={() => this.toggleNav('dashboard')} to="/dashboard">
           Dashboard
         </Link>
-        <button
-          onClick={() => this.toggleNav('projects')}
-          onMouseOver={() => recordEvent('Over')}
-          onBlur={() => recordEvent('Blur')}
-        >
-          Projects
-        </button>
+        <ProjectsDropdown />
         <button onClick={this.signOut}>
           Sign Out
         </button>
