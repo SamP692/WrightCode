@@ -4,9 +4,9 @@ import { push }             from 'react-router-redux';
 
 import { authService }      from '../../../services';
 
-import './Dashboard.css';
+import './Project.css';
 
-class Dashboard extends Component {
+class Project extends Component {
   componentWillMount() {
     const isActiveSession = (res) => {
       const user = {
@@ -15,6 +15,8 @@ class Dashboard extends Component {
       };
 
       this.props.dispatch({ type: 'UPDATE_SESSION', payload: user });
+
+      // Confirm ownership
     };
 
     const noActiveSession = () => {
@@ -28,7 +30,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        Welcome to your dashboard
+        Welcome to project x
       </div>
     );
   }
@@ -39,4 +41,4 @@ const mapStateToProps = (state, ownProps) => {
   return { ...ownProps, user };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Project);
