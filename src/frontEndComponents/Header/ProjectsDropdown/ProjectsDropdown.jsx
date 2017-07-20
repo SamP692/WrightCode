@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
-import '../Header.css';
-
 class ProjectsDropdown extends Component {
   toggleNav(navItem) {
     const payload = { navSelected: navItem };

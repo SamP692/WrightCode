@@ -2,18 +2,34 @@
   line-height: 4rem;
   width: 100%;
   background-color: rgba(41, 128, 185,1.0);
-  font-size: 1.5rem;
   color: rgba(52, 73, 94,1.0);
   display: flex;
-  flex-flow: row wrap;
-  align-items: stretch;
+  flex-direction: row;
 }
 
-#headerContainer a {
+#headerContainer div {
+  flex-grow: 1;
+  text-align: center;
+}
+
+#headerContainer a, button {
   color: inherit;
   text-decoration: none;
+  background-color: inherit;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 #headerContainer a:hover {
   color: inherit;
+}
+
+#headerContainer #signOutContainer {
+  flex-grow: 5;
+  text-align: right;
+}
+
+#headerContainer #signOutContainer button {
+  margin-right: 10%;
 }
