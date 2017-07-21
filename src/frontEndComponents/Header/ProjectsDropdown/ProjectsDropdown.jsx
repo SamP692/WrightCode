@@ -17,6 +17,7 @@ class ProjectsDropdown extends Component {
         onClick={() => this.toggleNav('projects')}
         onMouseOver={() => recordEvent('Over')}
         onBlur={() => recordEvent('Blur')}
+        className={this.props.headerUi.navSelected === 'projects' ? 'selected' : null}
       >
         Projects
       </button>

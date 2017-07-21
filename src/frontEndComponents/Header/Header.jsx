@@ -34,7 +34,11 @@ class Header extends Component {
     return (
       <div id="headerContainer">
         <div>
-          <Link onClick={() => this.toggleNav('dashboard')} to="/dashboard">
+          <Link
+            onClick={() => this.toggleNav('dashboard')}
+            to="/dashboard"
+            className={this.props.headerUi.navSelected === 'dashboard' ? 'selected' : null}
+          >
             Dashboard
           </Link>
         </div>
