@@ -10,7 +10,6 @@ const projects = (state = defaultProjects, action) => {
       break;
     }
     case 'DELETE_PROJECT':
-      console.log('Project Deleted... <_<');
       break;
     default:
       newState = state;
