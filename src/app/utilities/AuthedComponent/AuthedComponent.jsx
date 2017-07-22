@@ -2,7 +2,7 @@ import { Component }   from 'react';
 import { connect }     from 'react-redux';
 import { push }        from 'react-router-redux';
 
-import { authService } from '../../services';
+import { authService } from '../../../services';
 
 class AuthedComponent extends Component {
   constructor(props) {

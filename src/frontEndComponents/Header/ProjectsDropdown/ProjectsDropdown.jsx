@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
+import { chromeLogger }     from '../../../utilities';
+
 class ProjectsDropdown extends Component {
+  componentDidMount() {
+    chromeLogger({ message: 'Stuff' });
+  }
+
   toggleNav(navItem) {
     const payload = { navSelected: navItem };
     this.props.dispatch({ type: 'TOGGLE_NAV', payload });
   }
 
   render() {
-    const recordEvent = (event) => {
-      console.log('%cEvent Fired: ', 'color: blue; font-weight: bold', event);
-    };
+    const recordEvent = event => chromeLogger({ message: 'Event', data: event });
 
     return (
       <button

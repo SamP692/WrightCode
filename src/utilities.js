@@ -1,4 +1,4 @@
 import AuthedComponent from './app/utilities/AuthedComponent/AuthedComponent';
-import chromeLogger    from './app/utitilities/chromeLogger/chromeLogger';
+import chromeLogger    from './app/utilities/chromeLogger/chromeLogger';
 
 export { AuthedComponent, chromeLogger };
