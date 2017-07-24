@@ -12,9 +12,9 @@ class ProjectsDropdown extends Component {
 
   render() {
     return (
-      <div id="projectsDropdownContainer">
-        <button>Projects</button>
-        <ul>
+      <div id="projectsDropdownContainer" onBlur={this.toggleMenuDisplay}>
+        <button onClick={this.toggleMenuDisplay}>Projects</button>
+        <ul id={this.props.headerUi.projectsDropdownDisplayed ? null : 'hidden'}>
           <li>
             Test 1
           </li>

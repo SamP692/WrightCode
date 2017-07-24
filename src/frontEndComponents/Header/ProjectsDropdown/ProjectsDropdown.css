@@ -1,5 +1,8 @@
 #projectsDropdownContainer ul {
-  /*display: none;*/
   position: absolute;
   z-index: 100;
+}
+
+#projectsDropdownContainer #hidden {
+  display: none;
 }
