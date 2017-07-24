@@ -1,41 +1,35 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
 
-import { chromeLogger }     from '../../../utilities';
+// import { chromeLogger }     from '../../../utilities';
+
+import './ProjectsDropdown.css';
 
 class ProjectsDropdown extends Component {
-  componentDidMount() {
-    chromeLogger({ message: 'Stuff' });
-  }
+  toggleMenuDisplay() {
 
-  toggleNav(navItem) {
-    const payload = { navSelected: navItem };
-    this.props.dispatch({ type: 'TOGGLE_NAV', payload });
   }
 
   render() {
-    const recordEvent = event => chromeLogger({ message: 'Event', data: event });
-
     return (
-      <button
-        onClick={() => this.toggleNav('projects')}
-        onMouseOver={() => recordEvent('Over')}
-        onBlur={() => recordEvent('Blur')}
-        className={this.props.headerUi.navSelected === 'projects' ? 'selected' : null}
-      >
-        Projects
-      </button>
+      <div id="projectsDropdownContainer">
+        <button>Projects</button>
+        <ul>
+          <li>
+            Test 1
+          </li>
+          <li>
+            Test 2
+          </li>
+        </ul>
+      </div>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { user, headerUi } = state;
-  return {
-    ...ownProps,
-    user,
-    headerUi,
-  };
+  const { headerUi, projects } = state;
+  return { ...ownProps, headerUi, projects };
 };
 
 export default connect(mapStateToProps)(ProjectsDropdown);

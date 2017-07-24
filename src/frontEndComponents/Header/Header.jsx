@@ -5,7 +5,9 @@ import { connect }          from 'react-redux';
 
 import { authService }      from '../../services';
 
-import { ProjectsDropdown }  from '../../frontEndComponents';
+import { ProjectsDropdown } from '../../frontEndComponents';
+
+import { chromeLogger }     from '../../utilities';
 
 import './Header.css';
 
@@ -16,7 +18,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
+    chromeLogger({ message: 'Props in Header Component:', data: this.props });
   }
 
   signOut() {
@@ -32,23 +34,23 @@ class Header extends Component {
 
   render() {
     return (
-      <div id="headerContainer">
-        <div>
-          <Link
-            onClick={() => this.toggleNav('dashboard')}
-            to="/dashboard"
-            className={this.props.headerUi.navSelected === 'dashboard' ? 'selected' : null}
-          >
-            Dashboard
-          </Link>
-        </div>
-        <div>
+      <div>
+        <div id="headerContainer">
+          <div>
+            <Link
+              onClick={() => this.toggleNav('dashboard')}
+              to="/dashboard"
+              className={this.props.router.location.pathname === '/dashboard' ? 'selected' : null}
+            >
+              Dashboard
+            </Link>
+          </div>
           <ProjectsDropdown />
-        </div>
-        <div id="signOutContainer">
-          <button onClick={this.signOut}>
-            Sign Out
-          </button>
+          <div id="signOutContainer">
+            <button onClick={this.signOut}>
+              Sign Out
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -56,12 +58,8 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { user, headerUi } = state;
-  return {
-    ...ownProps,
-    user,
-    headerUi,
-  };
+  const { user, headerUi, router } = state;
+  return { ...ownProps, user, headerUi, router };
 };
 
 export default connect(mapStateToProps)(Header);

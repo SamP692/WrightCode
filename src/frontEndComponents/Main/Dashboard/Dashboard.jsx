@@ -25,6 +25,10 @@ class Dashboard extends Component {
     authService.confirmSession(isActiveSession, noActiveSession);
   }
 
+  componentDidMount() {
+    // projectsService.getProjects()
+  }
+
   render() {
     return (
       <div>
