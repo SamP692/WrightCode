@@ -1,39 +1,22 @@
 import React, { Component } from 'react';
 import { connect }          from 'react-redux';
-import { push }             from 'react-router-redux';
 
-import { authService }      from '../../../services';
+import { AuthWrapper }      from '../../../frontEndComponents';
 
 import './Dashboard.css';
 
 class Dashboard extends Component {
-  componentWillMount() {
-    const isActiveSession = (res) => {
-      const user = {
-        userName: res.email,
-        userId: res.uid,
-      };
-
-      this.props.dispatch({ type: 'UPDATE_SESSION', payload: user });
-    };
-
-    const noActiveSession = () => {
-      this.props.dispatch({ type: 'END_SESSION' });
-      this.props.dispatch(push('/'));
-    };
-
-    authService.confirmSession(isActiveSession, noActiveSession);
-  }
-
   componentDidMount() {
     // projectsService.getProjects()
   }
 
   render() {
     return (
-      <div>
-        Welcome to your dashboard
-      </div>
+      <AuthWrapper>
+        <div id="dashboardContainer">
+          Welcome to your dashboard
+        </div>
+      </AuthWrapper>
     );
   }
 }

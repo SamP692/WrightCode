@@ -1,4 +1,4 @@
-import AuthedComponent  from './frontEndComponents/utilities/AuthedComponent/AuthedComponent';
+import AuthWrapper      from './frontEndComponents/utilities/AuthWrapper';
 
 import Landing          from './frontEndComponents/Landing/Landing';
 
@@ -11,7 +11,7 @@ import Project          from './frontEndComponents/Main/Project/Project';
 import ProjectsDropdown from './frontEndComponents/Header/ProjectsDropdown/ProjectsDropdown';
 
 export {
-  AuthedComponent,
+  AuthWrapper,
   Project,
   Main,
   Header,

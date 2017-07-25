@@ -1,16 +1,14 @@
-import { Component }   from 'react';
-import { connect }     from 'react-redux';
-import { push }        from 'react-router-redux';
+import React, { Component } from 'react';
+import { connect }          from 'react-redux';
+import { push }             from 'react-router-redux';
 
-import { authService } from '../../../services';
+import { authService }      from '../../services';
 
-class AuthedComponent extends Component {
-  constructor(props) {
-    super(props);
-  }
+import { chromeLogger }     from '../../utilities';
 
-  componentDidMount() {
-    console.log('Authed Component Mounted');
+class AuthWrapper extends Component {
+  componentWillMount() {
+    chromeLogger({ message: 'AuthWrapper loaded' });
 
     const noActiveSession = () => {
       this.props.dispatch({ type: 'LOGOUT' });
@@ -29,7 +27,16 @@ class AuthedComponent extends Component {
 
     authService.confirmSession(isActiveSession, noActiveSession);
   }
+
+  render() {
+    return (
+      <div>
+        {this.props.children}
+      </div>
+    );
+  }
 }
+
 
 const mapStateToProps = (state, ownProps) => {
   const { user } = state;
@@ -39,4 +46,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(AuthedComponent);
+export default connect(mapStateToProps)(AuthWrapper);
