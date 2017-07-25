@@ -6,14 +6,12 @@ import { AuthWrapper }      from '../../../frontEndComponents';
 import './Project.css';
 
 class Project extends Component {
-  // componentWillMount() {
-  //   Confirm that user owns project
-  // }
-
   render() {
     return (
       <AuthWrapper>
-        Welcome to project x
+        <div id="projectContainer">
+          Welcome to project x
+        </div>
       </AuthWrapper>
     );
   }
