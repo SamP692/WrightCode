@@ -4,12 +4,10 @@ import { push }             from 'react-router-redux';
 
 import { authService }      from '../../services';
 
-import { chromeLogger }     from '../../utilities';
+// import { chromeLogger }     from '../../utilities';
 
 class AuthWrapper extends Component {
   componentWillMount() {
-    chromeLogger({ message: 'AuthWrapper loaded' });
-
     const noActiveSession = () => {
       this.props.dispatch({ type: 'LOGOUT' });
       this.props.dispatch(push('/'));

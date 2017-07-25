@@ -6,10 +6,6 @@ import { AuthWrapper }      from '../../../frontEndComponents';
 import './Dashboard.css';
 
 class Dashboard extends Component {
-  componentDidMount() {
-    // projectsService.getProjects()
-  }
-
   render() {
     return (
       <AuthWrapper>
