@@ -32,11 +32,11 @@ class ProjectsDropdown extends Component {
           Projects
         </button>
         <ul id={this.props.headerUi.projectsDropdownDisplayed ? null : 'hidden'}>
-          <li>
-            Test 1
+          <li id="newProject">
+            New Project <span>+</span>
           </li>
           <li>
-            Test 2
+            Test Project
           </li>
         </ul>
       </div>

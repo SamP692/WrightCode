@@ -1,1 +1,1 @@
-export default { projectsDropdownDisplayed: false };
+export default { projectsDropdownDisplayed: true };

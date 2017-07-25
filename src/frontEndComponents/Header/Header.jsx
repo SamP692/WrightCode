@@ -35,21 +35,23 @@ class Header extends Component {
   render() {
     return (
       <div>
-        <div id="headerContainer">
-          <div>
-            <Link
-              onClick={() => this.toggleNav('dashboard')}
-              to="/dashboard"
-              className={this.props.router.location.pathname === '/dashboard' ? 'selected' : null}
-            >
-              Dashboard
-            </Link>
-          </div>
-          <ProjectsDropdown />
-          <div id="signOutContainer">
-            <button onClick={this.signOut}>
-              Sign Out
-            </button>
+        <div id="headerBackground">
+          <div id="headerContainer">
+            <div>
+              <Link
+                onClick={() => this.toggleNav('dashboard')}
+                to="/dashboard"
+                className={this.props.router.location.pathname === '/dashboard' ? 'selected' : null}
+              >
+                Dashboard
+              </Link>
+            </div>
+            <ProjectsDropdown />
+            <div id="signOutContainer">
+              <button onClick={this.signOut}>
+                Sign Out
+              </button>
+            </div>
           </div>
         </div>
       </div>
