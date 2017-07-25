@@ -35,9 +35,6 @@ class ProjectsDropdown extends Component {
           <li id="newProject">
             New Project <span>+</span>
           </li>
-          <li>
-            Test Project
-          </li>
         </ul>
       </div>
     );
