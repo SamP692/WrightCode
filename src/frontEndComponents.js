@@ -1,14 +1,17 @@
-import Landing   from './frontEndComponents/Landing/Landing';
+import AuthedComponent  from './frontEndComponents/utilities/AuthedComponent/AuthedComponent';
 
-import Main      from './frontEndComponents/Main/Main';
-import Header    from './frontEndComponents/Header/Header';
+import Landing          from './frontEndComponents/Landing/Landing';
 
-import Dashboard from './frontEndComponents/Main/Dashboard/Dashboard';
-import Project   from './frontEndComponents/Main/Project/Project';
+import Main             from './frontEndComponents/Main/Main';
+import Header           from './frontEndComponents/Header/Header';
+
+import Dashboard        from './frontEndComponents/Main/Dashboard/Dashboard';
+import Project          from './frontEndComponents/Main/Project/Project';
 
 import ProjectsDropdown from './frontEndComponents/Header/ProjectsDropdown/ProjectsDropdown';
 
 export {
+  AuthedComponent,
   Project,
   Main,
   Header,
