@@ -6,14 +6,31 @@ import { connect }          from 'react-redux';
 import './ProjectsDropdown.css';
 
 class ProjectsDropdown extends Component {
-  toggleMenuDisplay() {
+  constructor() {
+    super();
+    this.toggleMenuDisplay = this.toggleMenuDisplay.bind(this);
+  }
 
+  toggleMenuDisplay(type = null) {
+    this.props.dispatch({
+      type: 'TOGGLE_PROJECTS_DROPDOWN',
+      payload: {
+        projectsDropdownDisplayed: type === 'blur' ?
+          false :
+          !this.props.headerUi.projectsDropdownDisplayed,
+      },
+    });
   }
 
   render() {
     return (
-      <div id="projectsDropdownContainer" onBlur={this.toggleMenuDisplay}>
-        <button onClick={this.toggleMenuDisplay}>Projects</button>
+      <div id="projectsDropdownContainer" onBlur={() => this.toggleMenuDisplay('blur')}>
+        <button
+          onClick={this.toggleMenuDisplay}
+          className={this.props.router.location.pathname === '/project' ? 'selected' : null}
+        >
+          Projects
+        </button>
         <ul id={this.props.headerUi.projectsDropdownDisplayed ? null : 'hidden'}>
           <li>
             Test 1
@@ -28,8 +45,8 @@ class ProjectsDropdown extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { headerUi, projects } = state;
-  return { ...ownProps, headerUi, projects };
+  const { headerUi, projects, router } = state;
+  return { ...ownProps, headerUi, projects, router };
 };
 
 export default connect(mapStateToProps)(ProjectsDropdown);

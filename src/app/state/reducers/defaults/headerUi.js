@@ -1,1 +1,1 @@
-export default { navSelected: 'dashboard' };
+export default { projectsDropdownDisplayed: false };
