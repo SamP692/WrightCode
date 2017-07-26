@@ -1,20 +1,15 @@
 import { defaultProjects } from './defaults';
 
 const projects = (state = defaultProjects, action) => {
-  let newState;
   switch (action.type) {
-    case 'NEW_PROJECT': {
-      const projectsState = state.slice(0);
-      projectsState.push(action.projectData);
-      newState = projectsState;
-      break;
-    }
-    case 'DELETE_PROJECT':
-      break;
+    case 'UPDATE_CURRENT_PROJECT':
+      return { ...state, ...action.payload };
+    case 'UPDATE_PROJECTS':
+      // NEED TO COPY PROJECTS ARRAY, ADD/REMOVE UPDATE SPECIFIC PROJECT, UPDATE STATE W/ NEW ARRAY
+      return { ...state, ...action.payload };
     default:
-      newState = state;
+      return state;
   }
-  return newState;
 };
 
 export default projects;

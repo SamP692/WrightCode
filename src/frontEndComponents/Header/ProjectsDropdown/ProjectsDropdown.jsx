@@ -22,6 +22,10 @@ class ProjectsDropdown extends Component {
     });
   }
 
+  goToProject(projectId = null) {
+    this.props.dispatch({ type: 'UPDATE_CURRENT_PROJECT', payload: { currentProject: projectId } });
+  }
+
   render() {
     return (
       <div id="projectsDropdownContainer" onBlur={() => this.toggleMenuDisplay('blur')}>
